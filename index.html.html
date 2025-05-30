@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consultoria de Alimentos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2e0e6e6c2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    :root {
+      --primary-color: #0d3b2f;
+      --accent-color: #30c795;
+      --bg-light: #f5f5f5;
+      --text-color: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: white;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    .hero {
+      background: linear-gradient(to right, rgba(13,59,47,0.7), rgba(48,199,149,0.7)),
+        url('https://images.unsplash.com/photo-1581090700227-1e8eec30d1b5?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero a {
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #30c795, #0d3b2f);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+    }
+
+    .hero a:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    }
+
+    .card i {
+      font-size: 2.2rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .alt-section {
+      background-color: var(--bg-light);
+    }
+
+    .depoimentos, .clientes {
+      text-align: center;
+    }
+
+    .depoimentos p, .clientes p {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .clientes-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .clientes-logos img {
+      height: 60px;
+      object-fit: contain;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    input, textarea {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: var(--primary-color);
+    }
+
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .whatsapp-button img {
+      width: 60px;
+      height: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo_rba_transparent.png" alt="Logo Consultoria" />
+      <strong>Consultoria de Alimentos RBA</strong>
+    </div>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Quem Somos</a>
+      <a href="#contato">Contato</a>
+      <a href="https://www.instagram.com/consultoriarba" target="_blank" rel="noopener noreferrer" style="color:#30c795; text-decoration:none; font-weight:bold;">
+        Instagram @consultoriarba
+      </a>
+    </nav>
+  </header>
+
+  <section class="hero" data-aos="fade-in">
+    <h1>Excelência em Segurança Alimentar</h1>
+    <p>Soluções personalizadas para sua empresa atender às normas e garantir qualidade.</p>
+    <a href="#contato">Solicite uma avaliação</a>
+  </section>
+
+  <section id="servicos" data-aos="fade-up">
+    <h2 style="text-align:center; margin-bottom:2rem;">Nossos Serviços</h2>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-check-circle"></i>
+        <h3>Auditorias Técnicas</h3>
+        <p>Identificação de riscos e oportunidades de melhoria no processo produtivo.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-file-alt"></i>
+        <h3>Documentação</h3>
+        <p>Criação de manuais, POPs e registros de acordo com as normas.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <h3>Capacitação</h3>
+        <p>Treinamentos em boas práticas de fabricação, APPCC e controle de alergênicos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="alt-section" data-aos="fade-up">
+    <h2 style="text-align:center; margin-bottom:2rem;">Quem Somos</h2>
+    <p style="max-width: 800px; margin: auto; text-align: center;">
+      Somos uma consultoria com mais de 2 anos de experiência em segurança alimentar, atuando em diversos segmentos da indústria e comércio. Ajudamos empresas a alcançarem a conformidade com as exigências legais e certificações como ISO 22000, FSSC 22000 e outras.
+    </p>
+  </section>
+
+  
+  <section class="clientes alt-section" data-aos="fade-up">
+    <h2>Nossos Clientes</h2>
+    <div class="clientes-logos">
+      <img src="https://via.placeholder.com/150x60?text=Cliente+1" alt="Cliente 1" />
+      <img src="https://via.placeholder.com/150x60?text=Cliente+2" alt="Cliente 2" />
+      <img src="https://via.placeholder.com/150x60?text=Cliente+3" alt="Cliente 3" />
+    </div>
+  </section>
+
+  <section id="contato" data-aos="fade-up">
+    <h2 style="text-align:center; margin-bottom:2rem;">Contato</h2>
+    <p style="text-align:center;">Preencha o formulário abaixo e entraremos em contato:</p>
+    <form>
+      <input type="text" placeholder="Seu nome" required />
+      <input type="email" placeholder="Seu e-mail" required />
+      <textarea rows="5" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <div style="margin-top:2rem; text-align:center;">
+      <iframe src="https://www.google.com/maps?q=Catalao,GO,Brasil&output=embed" width="100%" height="300" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <a href="https://wa.me/5564999613468" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Fale conosco no WhatsApp" />
+  </a>
+
+  <footer>
+    <p>&copy; 2025 Consultoria de Alimentos RBA. Todos os direitos reservados.</p>
+    <p>Desenvolvido por <a href="https://www.instagram.com/_moisesprado" style="color:#30c795; text-decoration:none;">@moisesprado</a></p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
